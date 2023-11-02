@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "907d594d-e609-4786-b9bc-30261f2d29f5",
+		"name": "Recipe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30841543"
+	},
+	"item": [
+		{
+			"name": "check server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{base_url}}/category",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/recipes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/recipes/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "seblak",
+							"type": "text"
+						},
+						{
+							"key": "ingredients",
+							"value": "kerupuk, air, cabai",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"value": "https://picsum.photos/200",
+							"description": "https://picsum.photos/200",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "3",
+							"description": "1 = main course | 2 = appetizer | 3 = dessert",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/recipes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipes"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "bubur ayam",
+							"type": "text"
+						},
+						{
+							"key": "ingredients",
+							"value": "beras, ayam, bawang daun, telor",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "category_id",
+							"value": "2",
+							"description": "1 = main course | 2 = appetizer | 3 = dessert",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/recipes/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipes",
+						"3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{base_url}}/recipes/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

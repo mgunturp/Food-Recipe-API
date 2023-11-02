@@ -14,19 +14,6 @@ const getAllRecipes = async () => {
   );
 };
 
-const getARecipes = async () => {
-  console.log("model getAllRecipes");
-  return new Promise((resolve, reject) =>
-    Pool.query(`SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.name AS category FROM recipes JOIN category ON recipes.category_id
-    =category.id`, (err, result) => {
-      if (!err) {
-        return resolve(result);
-      } else {
-        reject(err);
-      }
-    })
-  );
-};
 
 const getRecipeById = async (id) => {
   console.log("model getRecipeById");

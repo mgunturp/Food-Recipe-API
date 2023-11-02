@@ -5,6 +5,7 @@ const {
   putRecipe,
   deleteRecipeById,
   getCategory,
+  
 } = require("../model/recipes");
 
 const RecipesController = {
@@ -23,12 +24,6 @@ const RecipesController = {
     })
 
     res.status(200).json({ message: "success get data", data });
-  },
-
-  categoryAll: async (req, res, next) => { 
-    let category = await getCategory()
-
-    res.status(200).json({ message: "success get data", data: category.rows });
   },
 
   getRecipesDetail: async (req, res, next) => {

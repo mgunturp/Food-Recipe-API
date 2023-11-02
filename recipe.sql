@@ -3,6 +3,12 @@ CREATE TABLE recipes(
     title VARCHAR,
     content TEXT
 );
+CREATE TABLE users(
+    id INT UNIQUE,
+    name VARCHAR,
+    umur INT,
+    address VARCHAR
+);
 
 SELECT * from recipes;
 
@@ -22,6 +28,7 @@ INSERT INTO category(id,name) VALUES (2,'appetizer');
 INSERT INTO category(id,name) VALUES (3,'dessert');
 
 ALTER Table recipes ADD COLUMN category_id INT;
+ALTER Table recipes ADD COLUMN food_blogger INT;
 
 ALTER Table recipes ALTER COLUMN category_id SET NOT NULL;
 
@@ -29,6 +36,9 @@ ALTER Table recipes ALTER COLUMN category_id SET NOT NULL;
 INSERT INTO recipes (title, ingredients, photo,category_id) VALUES ('ice cream','susu, air, ice','https://picsum.photos/200',3)
 
 ALTER Table recipes ADD CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES category(id);
+ALTER Table recipes ADD CONSTRAINT fk_food_blogger FOREIGN KEY (food_blogger) REFERENCES users(id);
+
+
 
 SELECT * FROM recipes JOIN category ON recipes.category_id=category.id;
 
@@ -49,3 +59,6 @@ SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.n
 
 SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.name AS category FROM recipes JOIN category ON recipes.category_id
 =category.id WHERE category_id = 1;
+
+SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.name AS category, users.name AS author 
+FROM recipes JOIN category ON recipes.category_id=category.id JOIN users ON recipes.food_blogger = users.id;
