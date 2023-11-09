@@ -62,3 +62,21 @@ SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.n
 
 SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.name AS category, users.name AS author 
 FROM recipes JOIN category ON recipes.category_id=category.id JOIN users ON recipes.food_blogger = users.id;
+
+CREATE TABLE users(
+    uuid VARCHAR UNIQUE,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    username VARCHAR
+);
+
+INSERT INTO users(uuid,email,password,username)VALUES('1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed', 'admin@recipe.com',
+'$argon2i$v=19$m=16,t=2,p=1$eVZTaDdCZ0J1djlST2NDcQ$n18bQSFApiroV8JLmsLV0A','admin recipe');
+
+SELECT * FROM users WHERE email='admin@recipe.com';
+
+ALTER TABLE recipes ADD COLUMN users_id VARCHAR;
+ALTER TABLE recipes ALTER COLUMN users_id VARCHAR;
+
+UPDATE recipes SET users_id='1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed' WHERE photo='https://picsum.photos/200';
+

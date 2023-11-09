@@ -2,8 +2,36 @@ const Pool = require("../config/db");
 
 
 
-const getUsers = async () => {
-    console.log("model getUsers");
+const selectId = async (email) => {
+    console.log("model selectId");
+    return new Promise((resolve, reject) =>
+      Pool.query(`SELECT * FROM users WHERE email='${email}';`, (err, result) => {
+        if (!err) {
+          return resolve(result);
+        } else {
+          reject(err);
+        }
+      })
+    );
+  };
+
+const insertUser = async (data) => {
+    console.log("model insertUser");
+    let {uuid,email,password,username}=data
+    return new Promise((resolve, reject) =>
+      Pool.query(`INSERT INTO users(uuid,email,password,username)VALUES('${uuid}', '${email}',
+      '${[password]}','${username}');`, (err, result) => {
+        if (!err) {
+          return resolve(result);
+        } else {
+          reject(err);
+        }
+      })
+    );
+  };
+
+  const getUser = async () => {
+    console.log("model getUser");
     return new Promise((resolve, reject) =>
       Pool.query(`SELECT * FROM users;`, (err, result) => {
         if (!err) {
@@ -14,23 +42,9 @@ const getUsers = async () => {
       })
     );
   };
-  
-  // const getUserById = async (id) => {
-  //   console.log("model getRecipeById");
-  //   return new Promise((resolve, reject) =>
-  //     Pool.query(`SELECT recipes.id, recipes.title, recipes.ingredients, recipes.photo, category.name AS category FROM recipes JOIN category ON recipes.category_id
-  //     =category.id WHERE recipes.id=${id}`, (err, result) => {
-  //       if (!err) {
-  //         return resolve(result);
-  //       } else {
-  //         reject(err);
-  //       }
-  //     })
-  //   );
-  // };
-
 
   module.exports = {
-    getUsers,
-    // getUserById
+    selectId,
+    insertUser,
+    getUser
   };

@@ -2,6 +2,7 @@ const express = require("express");
 const recipes = require("./src/router/recipes");
 const category = require("./src/router/category");
 const users = require("./src/router/users");
+const auth = require("./src/router/auth");
 
 
 const cors = require("cors");
@@ -24,6 +25,7 @@ app.get("/", (req, res, next) => {
 app.use('/recipes', recipes)
 app.use('/category', category)
 app.use('/users', users)
+app.use('/auth', auth)
 
 
 app.listen(port, () => {
